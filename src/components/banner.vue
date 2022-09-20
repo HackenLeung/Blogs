@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 const websiteInfo = reactive({
-    avatar: 'https://s2.ax1x.com/2020/01/17/1SCadg.png',
+    avatar: 'https://s1.ax1x.com/2022/09/20/xP8WlT.jpg',
     slogan: 'The way up is not crowded, and most chose ease.',
     name: 'FZY′blog',
     domain: 'https://www.fengziy.cn',

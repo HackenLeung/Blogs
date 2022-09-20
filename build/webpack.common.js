@@ -6,6 +6,7 @@ const { VueLoaderPlugin } = require('vue-loader/dist/index')
 const Components = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver, ElementUiResolver } = require('unplugin-vue-components/resolvers')
 const AutoImport = require('unplugin-auto-import/webpack')
+const { DefinePlugin } = require("webpack")
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/main.ts'), // 打包入口
@@ -103,6 +104,10 @@ module.exports = {
             ],
             dirs: ['src/store'],
             dts: 'src/auto-imports.d.ts'
+        }),
+        new DefinePlugin({
+            __VUE_OPTIONS_API__: true,
+            __VUE_PROD_DEVTOOLS__: true,
         })
     ],
 }

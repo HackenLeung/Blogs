@@ -13,7 +13,7 @@
                         </div>
                         <div style="font-size: 13px;">
                             <span style="color: #9c9c9c;margin-right: 20px;">{{props.comment.createTime }}</span>
-                            <span @click.stop="showCommentEditor=true" style="cursor: pointer;">回复</span>
+                            <span @click.stop="replyClick" style="cursor: pointer;">回复</span>
                         </div>
                     </div>
                 </section-title>
@@ -24,7 +24,7 @@
                 <p>{{props.comment.content}}</p>
             </div>
             <div v-if="showCommentEditor" @click.stop="">
-                <!-- <comment-message-editor :inline="true" buttonText="回复" @submit="submitReply"></comment-message-editor> -->
+                <comment-message-editor :inline="true" buttonText="回复" @submit="submitReply"></comment-message-editor>
             </div>
             <slot></slot>
         </div>
@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-// import commentMessageEditor from 'comment-message-editor';
+import commentMessageEditor from 'comment-message-editor';
 const props = defineProps({
     comment: {
         type: Object
@@ -53,6 +53,12 @@ function submitReply(v){
 }
 function close(){
     this.showCommentEditor = false
+}
+
+function replyClick(){
+    console.log('点击了吗');
+    
+    showCommentEditor.value = true;
 }
 </script>
 

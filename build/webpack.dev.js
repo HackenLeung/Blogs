@@ -7,6 +7,11 @@ module.exports = merge(baseConfig, {
     devServer: {
         hot: true, // 启用热模块替换
         open: true, // 打开默认浏览器
-        port: 8000,
+        port: 8080,
+        compress: true,
+        client: {
+            progress: true,
+        },
     },
+    
 })

@@ -21,6 +21,7 @@ module.exports = {
             "@": path.resolve(__dirname, "../src"),  // 设置别名
         },
     },
+    // devtool:'eval',
     module: {
         rules: [
             {
@@ -99,11 +100,17 @@ module.exports = {
             imports: [
                 // presets
                 'vue',
-                'vue-router',
+                'vue-router'
                 // custom
             ],
             dirs: ['src/store'],
-            dts: 'src/auto-imports.d.ts'
+            dts: 'src/auto-imports.d.ts',
+            // eslint报错解决
+            // eslintrc: {
+            //     enabled: false, // Default `false`
+            //     filepath: '../.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+            //     globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+            // },
         }),
         new DefinePlugin({
             __VUE_OPTIONS_API__: true,

@@ -30,6 +30,9 @@
             <div class="menu-item">
                 <router-link to="/about">关于</router-link>
             </div>
+            <div class="menu-item">
+                <router-link to="/text">测试</router-link>
+            </div>
         </div>
     </div>
 </template>

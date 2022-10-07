@@ -28,6 +28,16 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../view/About.vue'),
         meta: { title: '关于'}
     },
+    {
+        path: '/text',
+        name: 'text',
+        component: () => import('../view/text.vue'),
+        meta: { title: '关于'}
+    },
+    {
+        path:'/:pathMatch(.*)/',
+        redirect: '/',
+    }
 ]
 const router = createRouter({
     history: createWebHistory(),

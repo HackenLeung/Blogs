@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <banner isHome="true"></banner>
+        <!-- <banner isHome="true"></banner> -->
         <div class="site-content animate">
             <!--通知栏-->
             <div class="notify">

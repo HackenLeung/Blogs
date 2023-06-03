@@ -1,15 +1,15 @@
 <template>
-    <div id="layout-header" :class="{'fixed':fixed,'hidden':hidden}" @click.stop="mobileShow=false">
+    <div id="layout-header" :class="{ 'fixed': fixed, 'hidden': hidden }" @click.stop="mobileShow = false">
         <div class="site-logo">
             <!-- <router-link to="/">
                 <img src="@/assets/site-logo.svg" alt="">
                 <p class="site-name">Gblog</p>
             </router-link> -->
         </div>
-        <div class="menus-btn" @click.stop="mobileShow=!mobileShow">
+        <div class="menus-btn" @click.stop="mobileShow = !mobileShow">
             Menus
         </div>
-        <div class="site-menus" :class="{'mobileShow':mobileShow}" @click.stop="mobileShow=!mobileShow">
+        <div class="site-menus" :class="{ 'mobileShow': mobileShow }" @click.stop="mobileShow = !mobileShow">
             <div class="menu-item header-search">
                 <header-search />
             </div>
@@ -20,7 +20,7 @@
                 <a href="#">文章</a>
                 <div class="childMenu" v-if="category.length">
                     <div class="sub-menu" v-for="item in category">
-                        <router-link :to="`/category/${item.title}`">{{item.title}}</router-link>
+                        <router-link :to="`/category/${item.title}`">{{ item.title }}</router-link>
                     </div>
                 </div>
             </div>
@@ -33,11 +33,18 @@
             <div class="menu-item">
                 <router-link to="/text">测试</router-link>
             </div>
+            <div class="menu-item">
+                <el-icon @click="toggleTheme">
+                    <Sunny v-if="isDark"/>
+                    <Moon v-else/>
+                </el-icon>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { Sunny, Moon } from '@element-plus/icons-vue'
 
 interface categoryData {
     title: String,
@@ -49,6 +56,7 @@ let lastScrollTop = ref<Number>(0);
 let fixed = ref<Boolean>(false);
 let hidden = ref<Boolean>(false);
 let mobileShow = ref<Boolean>(false);
+let isDark = ref<Boolean>(true);
 let category = reactive<categoryData[]>([
     {
         id: 1,
@@ -93,6 +101,42 @@ function watchScroll() {
     }
     lastScrollTop.value = scrollTop
 }
+const toggleTheme = (event: MouseEvent) => {
+    const x = event.clientX;
+    const y = event.clientY;
+    const endRadius = Math.hypot(
+        Math.max(x, innerWidth - x),
+        Math.max(y, innerHeight - y)
+    );
+
+    // let isDark: boolean;
+    // @ts-ignore
+    const transition = document.startViewTransition(() => {
+        const root = document.documentElement;
+        isDark.value = root.classList.contains("dark");
+        root.classList.remove(isDark.value ? "dark" : "light");
+        root.classList.add(isDark.value ? "light" : "dark");
+    });
+    transition.ready.then(() => {
+        const clipPath = [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+        ];
+        document.documentElement.animate(
+            {
+                clipPath: isDark.value ? clipPath.reverse() : clipPath,
+            },
+            {
+                duration: 200,
+                easing: "ease-in",
+                pseudoElement: isDark.value ? "::view-transition-old(root)" : "::view-transition-new(root)",
+            }
+        );
+    });
+
+};
+
+
 </script>
 
 <style scoped lang="scss">
@@ -156,7 +200,7 @@ function watchScroll() {
 
         a {
             padding: 12px 10px;
-            color: #545454;
+            // color: #545454;
             font-weight: 500;
             font-size: 16px;
 

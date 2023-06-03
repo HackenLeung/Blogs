@@ -1,6 +1,5 @@
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver, ElementUiResolver } from 'unplugin-vue-components/resolvers'
-import { sassFalse } from 'sass'
 
 export default function createVueComponents() {
     return Components({

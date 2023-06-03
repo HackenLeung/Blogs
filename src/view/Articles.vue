@@ -1,6 +1,6 @@
 <template>
     <div class="articles">
-        <banner></banner>
+        <!-- <banner></banner> -->
         <div class="site-content animate">
             <!-- 文章目录 -->
             <div id="article-menus">
@@ -222,7 +222,7 @@ article.hentry {
         .entry-title {
             font-size: 23px;
             font-weight: 600;
-            color: #737373;
+            // color: #737373;
             margin: 0.67em 0;
 
             &:before {

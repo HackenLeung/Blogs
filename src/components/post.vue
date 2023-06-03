@@ -85,7 +85,7 @@ const props = defineProps({
         overflow: hidden;
         text-overflow: ellipsis;
         width: 70%;
-        color: #737373;
+        // color: #737373;
 
         & a:hover {
             color: #8fd0cc;
@@ -108,7 +108,7 @@ const props = defineProps({
         min-height: 60px;
         margin: 0 0 0 17%;
         font-size: 15px;
-        color: #6f6f6f;
+        // color: #6f6f6f;
         letter-spacing: 1px;
         line-height: 30px;
     }
@@ -123,7 +123,7 @@ const props = defineProps({
             color: #A0DAD0;
 
             a:hover {
-                color: #737373;
+                // color: #737373;
             }
         }
 

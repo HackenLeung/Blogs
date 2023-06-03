@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div id="container" ref="container"></div>
+    <div id="container" ref="container">
+
+      
+    </div>
   </div>
 </template>
     
@@ -35,8 +38,8 @@ function init() {
 
   // 相机位置
   camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
-  camera.position.set( 1, 1, 4 );
-  camera.lookAt( 1,0,0 );
+  camera.position.set( 0, 1, 4 );
+  camera.lookAt( 0,0,0 );
 
 
   clock = new THREE.Clock();
@@ -79,7 +82,7 @@ function init() {
 
   const loader = new GLTFLoader();
   // yujin_robot Soldier
-  loader.load( './sketchbot.glb', function ( gltf ) {
+  loader.load( 'stylized_ww1_plane.glb', function ( gltf ) {
     model = gltf.scene;
     gltf.scene.position.z = 0.5
     gltf.scene.position.x = 0.5
@@ -87,8 +90,13 @@ function init() {
     console.log(gltf,'gltf');
 
     model.traverse( function ( object ) {
-      if ( object.isMesh ) object.castShadow = true;
-
+      if ( object.isMesh ){
+        console.log(object.material,'object.material');
+         object.castShadow = true;
+        //  object.material.transparent = true
+        //  object.material.emissive = object.material.color;
+        //  object.material.emissiveMap = object.material.map;
+      }
     } );
 
     //骨骼显示助手
@@ -110,12 +118,16 @@ function init() {
     console.log(mixer,'mixer');
 
     idleAction = mixer.clipAction( animations[ 0 ] );
+        //增加旋转飞行动作
+    const flyAction = mixer.clipAction( animations[ 1 ] );
 
-    actions = [ idleAction ];
+    actions = [ idleAction, flyAction ];
+
 
     activateAllActions();
 
     animate();
+   
 
   } ,undefined, function ( error ) {
 

@@ -13,7 +13,12 @@
   <layout-footer></layout-footer>
 </template>
 
-<script lang="ts">
+<script setup >
+// import layoutHeader from "@/components/layout/layout-header"; //import layout components/directives/pagination for pagination in all pages. 创建Layout.vue组件;
+// import layoutBody from "@/components/layout/layout-body"; //import layout components/directives/pagination for pagination in all pages. 创建Layout.vue组件;
+// import layoutFooter from "@/components/layout/layout-footer"; //import layout components/directives/pagination for pagination in all pages. 创建Layout.vue组件;
+
+
 </script>
 
 <style>

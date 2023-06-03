@@ -11,29 +11,10 @@
                         style="color:#ff6d6d;font-weight:600">[置顶] </span>{{post.title}}</router-link>
             </h1>
             <div class="p-time">
-                <i class="iconfont iconmeditor-time"></i> {{props.post.pubTime}}<i v-if="props.post.isHot"
-                    class="iconfont iconfire" style="margin-left: 5px;color: #ff6d6d;"></i>
+                {{props.post.pubTime}}热度
             </div>
             <p class="summary">{{props.post.summary}}</p>
-            <footer class="entry-footer">
-                <div class="post-more">
-                    <router-link :to="`/article/${props.post.id}`"><i class="iconfont iconfish-li"
-                            style="font-size: 25px;"></i></router-link>
-                </div>
-                <div class="info-meta">
-                    <div class="comnum">
-                        <span>
-                            <i class="iconfont iconcomment"></i>
-                            <a href="https://zhebk.cn/Web/Akina.html">{{props.post.commentsCount}} 条评论</a>
-                        </span>
-                    </div>
-                    <div class="views">
-                        <span><i class="iconfont iconeyes"></i>{{props.post.viewsCount}} 热度</span>
-                    </div>
-                </div>
-            </footer>
         </div>
-        <hr />
     </article>
 </template>
 
@@ -113,62 +94,7 @@ const props = defineProps({
         line-height: 30px;
     }
 
-    footer.entry-footer {
-        margin: 0 0 0 17%;
-        list-style: none;
 
-        .post-more {
-            margin-top: 10px;
-            text-align: right;
-            color: #A0DAD0;
-
-            a:hover {
-                // color: #737373;
-            }
-        }
-
-        .info-meta {
-            margin-top: 10px;
-            font-family: din, 'Hiragino Sans GB', 'Microsoft Yahei', Arial, sans-serif;
-            position: absolute;
-            top: 20px;
-            opacity: 0;
-            padding-top: 8px;
-            border-top: 1px solid #ddd;
-            -webkit-transform: translate3d(-150px, 0, 0);
-            transform: translate3d(-150px, 0, 0);
-            visibility: hidden;
-            transition: .7s all ease;
-            -webkit-transition: .6s all ease;
-            -moz-transition: .6s all linear;
-            -o-transition: .6s all ease;
-            -ms-transition: .6s all ease;
-
-            span,
-            a {
-                color: #B3B3B3;
-                font-size: 12px;
-            }
-
-            i {
-                margin-top: 3px;
-                margin-right: 10px;
-                float: left
-            }
-        }
-
-        .comnum {
-            float: left;
-        }
-    }
-
-}
-
-.post-entry:hover footer.entry-footer .info-meta {
-    -webkit-transform: translate3d(-230px, 0, 0);
-    transform: translate3d(-230px, 0, 0);
-    opacity: 1;
-    visibility: visible;
 }
 
 .post hr {
@@ -180,11 +106,6 @@ const props = defineProps({
 }
 
 /*******/
-@media (max-width: 1060px) {
-    .info-meta {
-        display: none;
-    }
-}
 
 @media (max-width: 800px) {
     .post-entry {
@@ -211,9 +132,6 @@ const props = defineProps({
             overflow: hidden;
         }
 
-        .post-more {
-            display: none;
-        }
     }
 
     .post-list hr {

@@ -3,13 +3,13 @@
         <!-- <banner isHome="true"></banner> -->
         <div class="site-content animate">
             <!--通知栏-->
-            <div class="notify">
+            <!-- <div class="notify">
                 <div class="search-result" v-if="hideSlogan">
                     <span v-if="searchWords">搜索结果："{{searchWords}}" 相关文章</span>
                     <span v-else-if="category">分类 "{{category}}" 相关文章</span>
                 </div>
                 <quote v-else>{{notice}}</quote>
-            </div>
+            </div> -->
 
             <!--焦点图-->
             <div class="top-feature" v-if="!hideSlogan">
@@ -195,6 +195,7 @@ onMounted(() => {
 </script>
 <style scoped lang="scss">
 .site-content {
+    margin-top: 100px;
     .notify {
         margin: 60px 0;
         border-radius: 3px;

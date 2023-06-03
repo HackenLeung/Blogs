@@ -13,13 +13,12 @@
                 <div><a target="_blank" class="out-link" href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></div>
             </div>
             <div class="footer-item">
-                <div>本站已苟活 {{ 0000 }}</div>
+                <div>本站已苟活 {{ 1234 }}</div>
                 <div><a target="_blank" class="out-link" href="#">☞后台管理</a></div>
             </div>
         </div>
-        <div class="copyright">Copyright © 2020 by <a target="_blank" class="out-link"
-                href="https://www.fengziy.cn">fengziy.cn</a> . All rights reserved. | <a target="_blank" class="out-link"
-                href="http://www.beian.miit.gov.cn">渝ICP备17015355号-1</a></div>
+        <div class="copyright"> <a target="_blank" class="out-link"
+                href="#">备案号-1</a></div>
     </div>
 </template>
 

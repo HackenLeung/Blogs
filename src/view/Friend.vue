@@ -31,7 +31,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 
 const list = reactive([{
     id: 0,

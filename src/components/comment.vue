@@ -31,7 +31,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import commentMessageEditor from 'comment-message-editor';
 const props = defineProps({
     comment: {

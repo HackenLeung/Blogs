@@ -8,8 +8,8 @@
     </transition>
 </template>
 
-<script setup lang="ts">
-let show = ref<Boolean>(false);
+<script setup>
+let show = ref(false);
 function scroll() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
     if (scrollTop > 150) {

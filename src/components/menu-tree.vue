@@ -1,6 +1,6 @@
 <template>
     <ul class="menus">
-        <li v-for="item in props.menus">
+        <li v-for="(item,index) in props.menus" :key="index">
             <a :href="`#${item.id}`">#{{item.title}}</a>
             <ul v-if="item[props.childLabel]&& item[props.childLabel].length" class="child">
                 <menu-tree :menus="item[props.childLabel]" :child-label="props.childLabel"></menu-tree>
@@ -9,7 +9,7 @@
     </ul>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const props = defineProps({
     menus: {
         type: [Object, Array],

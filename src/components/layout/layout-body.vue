@@ -5,8 +5,8 @@
     </div>
 </template>
 
-<script setup lang="ts">
-   const minHeight = ref(600)
+<script setup>
+//    const minHeight = ref(600)
 </script>
 
 <style scoped>
@@ -15,5 +15,6 @@
     min-height: -moz-calc(100vh - 80px);
     min-height: -webkit-calc(100vh - 80px);
     min-height: calc(100vh - 80px);
+    margin-top: 100px;
 }
 </style>

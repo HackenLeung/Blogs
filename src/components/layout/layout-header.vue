@@ -19,7 +19,7 @@
             <div class="menu-item hasChild">
                 <a href="#">文章</a>
                 <div class="childMenu" v-if="category.length">
-                    <div class="sub-menu" v-for="item in category">
+                    <div class="sub-menu" v-for="item in category" :key="item.id">
                         <router-link :to="`/category/${item.title}`">{{ item.title }}</router-link>
                     </div>
                 </div>
@@ -43,21 +43,15 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { Sunny, Moon } from '@element-plus/icons-vue'
 
-interface categoryData {
-    title: String,
-    id: Number,
-    href: String
-}
-
-let lastScrollTop = ref<Number>(0);
-let fixed = ref<Boolean>(false);
-let hidden = ref<Boolean>(false);
-let mobileShow = ref<Boolean>(false);
-let isDark = ref<Boolean>(true);
-let category = reactive<categoryData[]>([
+let lastScrollTop = ref(0);
+let fixed = ref(false);
+let hidden = ref(false);
+let mobileShow = ref(false);
+let isDark = ref(true);
+let category = reactive([
     {
         id: 1,
         title: 'JAVA',
@@ -101,7 +95,7 @@ function watchScroll() {
     }
     lastScrollTop.value = scrollTop
 }
-const toggleTheme = (event: MouseEvent) => {
+const toggleTheme = (event) => {
     const x = event.clientX;
     const y = event.clientY;
     const endRadius = Math.hypot(

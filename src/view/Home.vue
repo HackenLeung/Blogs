@@ -26,7 +26,7 @@
             <!--文章列表-->
             <main class="site-main" :class="{'search':hideSlogan}">
                 <section-title v-if="!hideSlogan">推荐</section-title>
-                <template v-for="item in postList">
+                <template v-for="item in postList" :key="item.id">
                     <post :post="item"></post>
                 </template>
             </main>
@@ -39,7 +39,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const props = defineProps(['cate', 'words']);
 const features = reactive([
     {

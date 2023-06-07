@@ -15,9 +15,6 @@
     "echarts-gl": "^1.1.2",
     "element-plus": "^2.1.9",
     "pinia": "next",
-    "three": "^0.128.0",
-    "three-css2drender": "^1.0.0",
-    "three-orbit-controls": "^82.1.0",
     "vue": "^3.2.13",
     "vue-router": "^4.1.3"
   },

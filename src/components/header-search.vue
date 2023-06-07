@@ -6,9 +6,9 @@
     </div>
 </template>
 
-<script setup lang="ts">
-let searchValue = ref<string>('');
-let show = ref<Boolean>(false);
+<script setup>
+let searchValue = ref('');
+let show = ref(false);
 watch(show, (value) => {
     if (value) {
         document.body.addEventListener('click', close)

@@ -27,7 +27,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const websiteInfo = reactive({
     avatar: 'https://s1.ax1x.com/2022/09/20/xP8WlT.jpg',
     slogan: 'The way up is not crowded, and most chose ease.',

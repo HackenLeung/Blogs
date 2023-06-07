@@ -33,7 +33,7 @@
         </div>
     </div>
 </template>
-<script setup lang="ts">
+<script setup>
     const list = reactive([])
 </script>
 <style scoped lang="scss">

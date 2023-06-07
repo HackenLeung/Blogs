@@ -102,9 +102,9 @@ yum -y install gcc-c++</code></pre>
                     </div>
                     <!--评论-->
                     <div class="comments">
-                        <comment v-for="item in comments.value"  :comment="item.comment">
+                        <comment v-for="(item,index) in comments.value"  :comment="item.comment" :key="index">
                             <template v-if="item.reply.length">
-                                <comment v-for="reply in item.reply" :comment="reply"></comment>
+                                <comment v-for="(reply,i) in item.reply" :comment="reply" :key="i"></comment>
                             </template>
                         </comment> 
                     </div>
@@ -114,7 +114,7 @@ yum -y install gcc-c++</code></pre>
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 let showDonate = ref(false);
 let comments = reactive({
     value:[]

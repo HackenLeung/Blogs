@@ -22,7 +22,7 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { useMainStore } from '../../store/main' // import the store from the main.ts file and use it in the template. It's not a direct dependency
 const socials = reactive([]);
 const mainStore = useMainStore();

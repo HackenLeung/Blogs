@@ -48,6 +48,12 @@ export default defineConfig(({ mode, command }) => {
             }
           }
         ]
+      },
+      // 使用新版 sass 编译器 API，消除 legacy-js-api 废弃警告
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler'
+        }
       }
     }
   }

@@ -11,4 +11,4 @@
 
 #### 使用说明
 
-1.  npm run serve
+1.  npm run dev
